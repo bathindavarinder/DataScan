@@ -31,6 +31,10 @@ namespace DataScan
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowData));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Exportbtn = new System.Windows.Forms.Button();
             this.ConfirmBtn = new System.Windows.Forms.Button();
@@ -40,6 +44,8 @@ namespace DataScan
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.Close = new System.Windows.Forms.Button();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EqpNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,7 +71,6 @@ namespace DataScan
             // Exportbtn
             // 
             this.Exportbtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Exportbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Exportbtn.Image = ((System.Drawing.Image)(resources.GetObject("Exportbtn.Image")));
             this.Exportbtn.Location = new System.Drawing.Point(433, 717);
             this.Exportbtn.Name = "Exportbtn";
@@ -77,7 +82,6 @@ namespace DataScan
             // ConfirmBtn
             // 
             this.ConfirmBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ConfirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ConfirmBtn.Image = ((System.Drawing.Image)(resources.GetObject("ConfirmBtn.Image")));
             this.ConfirmBtn.Location = new System.Drawing.Point(704, 717);
             this.ConfirmBtn.Name = "ConfirmBtn";
@@ -141,8 +145,20 @@ namespace DataScan
             this.label3.TabIndex = 8;
             this.label3.Text = "Green : Previous Date";
             // 
+            // Close
+            // 
+            this.Close.Image = ((System.Drawing.Image)(resources.GetObject("Close.Image")));
+            this.Close.Location = new System.Drawing.Point(989, 717);
+            this.Close.Name = "Close";
+            this.Close.Size = new System.Drawing.Size(96, 50);
+            this.Close.TabIndex = 9;
+            this.Close.UseVisualStyleBackColor = true;
+            this.Close.Click += new System.EventHandler(this.Close_Click);
+            // 
             // Date
             // 
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.Date.DefaultCellStyle = dataGridViewCellStyle1;
             this.Date.HeaderText = "Date";
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
@@ -150,6 +166,9 @@ namespace DataScan
             // 
             // SerialNumber
             // 
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.SerialNumber.DefaultCellStyle = dataGridViewCellStyle2;
             this.SerialNumber.HeaderText = "Serial No.";
             this.SerialNumber.Name = "SerialNumber";
             this.SerialNumber.ReadOnly = true;
@@ -157,6 +176,9 @@ namespace DataScan
             // 
             // EqpNumber
             // 
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.EqpNumber.DefaultCellStyle = dataGridViewCellStyle3;
             this.EqpNumber.HeaderText = "Equipment Number";
             this.EqpNumber.Name = "EqpNumber";
             this.EqpNumber.ReadOnly = true;
@@ -164,6 +186,8 @@ namespace DataScan
             // 
             // Total
             // 
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.Total.DefaultCellStyle = dataGridViewCellStyle4;
             this.Total.DividerWidth = 2;
             this.Total.FillWeight = 150F;
             this.Total.HeaderText = "Total";
@@ -175,7 +199,8 @@ namespace DataScan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1658, 796);
+            this.ClientSize = new System.Drawing.Size(1588, 796);
+            this.Controls.Add(this.Close);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -185,8 +210,9 @@ namespace DataScan
             this.Controls.Add(this.ConfirmBtn);
             this.Controls.Add(this.Exportbtn);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ShowData";
-            this.Text = "ShowData";
+            this.Text = "Clap by Sysnet";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -204,6 +230,8 @@ namespace DataScan
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
+        private SaveFileDialog saveFileDialog1;
+        private Button Close;
         private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn SerialNumber;
         private DataGridViewTextBoxColumn EqpNumber;

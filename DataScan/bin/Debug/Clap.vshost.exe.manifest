@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="DataScan.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Clap.exe" version="1.0.0.11" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="claps.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="DataScan" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
-    <commandLine file="DataScan.exe" parameters="" />
+    <assemblyIdentity name="Clap" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Clap.exe" parameters="" />
   </entryPoint>
   <trustInfo>
     <security>
@@ -42,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DataScan.exe" size="92160">
-      <assemblyIdentity name="DataScan" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Clap.exe" size="194560">
+      <assemblyIdentity name="Clap" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>QRKIjWGLZR5Xd0xEksTPzeRTn9NG9Y0LRNSJvGWaSi8=</dsig:DigestValue>
+        <dsig:DigestValue>blN+UqH27oyiLjz/ykK21FFIbic+u/fUdVh004VkSXM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -77,7 +78,7 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="BWDataXML.xml" size="57" writeableType="applicationData">
+  <file name="BWDataXML.xml" size="57">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -86,7 +87,7 @@
       <dsig:DigestValue>N5ricIJkwUOI07HfBYhTF8lpYJy2u3LaW4ppF+J8qy0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="BWXml.xml" size="206" writeableType="applicationData">
+  <file name="BWXml.xml" size="206">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -95,7 +96,25 @@
       <dsig:DigestValue>SE15joyprpLY5betZwg37bPktzgPYwH9/sPs4yl95m4=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="ColorDataXML.xml" size="63" writeableType="applicationData">
+  <file name="Clap.exe.config" size="187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xm4bo26HQ0LNVwz1vdPYtzhkpMnp2AI5i+f0b+OahTI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="claps.ico" size="32038">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>UolfCHAl6FUb2zeIofgTeZ4WAYm+A8he31o9tMHaGqc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ColorDataXML.xml" size="63">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -104,22 +123,13 @@
       <dsig:DigestValue>UNp634pEUcSA5uHTvs3PZPs+ZxsXxD4m9awjj/NHFpk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="ColorXml.xml" size="206" writeableType="applicationData">
+  <file name="ColorXml.xml" size="206">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>SE15joyprpLY5betZwg37bPktzgPYwH9/sPs4yl95m4=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="DataScan.exe.config" size="187">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>xm4bo26HQ0LNVwz1vdPYtzhkpMnp2AI5i+f0b+OahTI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="External\Excel.4.5.dll" size="70144">

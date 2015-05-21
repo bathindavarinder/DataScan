@@ -56,20 +56,44 @@ namespace DataScan
                 return;
             }
             ExcelReader reader = new ExcelReader();
-            ShowData frm = new ShowData(); 
+            ShowData frm = new ShowData();
             frm.type = file;
 
             if (file == "BW")
             {
-                IEnumerable<BW> data = reader.GetBW<BW>(fileName);
-                frm.bw = data; 
-                frm.ShowDa();
+                try
+                {
+                    IEnumerable<BW> data = reader.GetBW<BW>(fileName);
+                    frm.bw = data;
+                    frm.ShowDa();
+                }
+                catch (System.IO.IOException x)
+                {
+                    MessageBox.Show("Error : File is already opened. Please closed it first !");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There is some issue with data in the excel. Please check it once!");
+                }
+
             }
             else if (file == "Color")
             {
-                IEnumerable<ColorExcel> data = reader.GetColor<ColorExcel>(fileName);  
-                frm.colorExcel = data;
-                frm.ShowDa();
+
+                try
+                {
+                    IEnumerable<ColorExcel> data = reader.GetColor<ColorExcel>(fileName);
+                    frm.colorExcel = data;
+                    frm.ShowDa();
+                }
+                catch (System.IO.IOException x)
+                {
+                    MessageBox.Show("Error : File is already opened. Please closed it first !");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There is some issue with data in the excel. Please check it once!");
+                }
             }
 
         }

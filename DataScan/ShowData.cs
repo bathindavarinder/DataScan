@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,31 +65,42 @@ namespace DataScan
                         if (Convert.ToInt32(b.Total) < total)
                         {
 
-                            this.dataGridView1.Rows[row].DefaultCellStyle.BackColor = Color.Red;
+                            this.dataGridView1.Rows[row].Cells[3].Style.BackColor = Color.Red;
                             conflictbw.Add(b);
                         }
                         else if (Convert.ToInt32(b.Total) > total)
                         {
-                            this.dataGridView1.Rows[row].DefaultCellStyle.BackColor = Color.Yellow;
+                            this.dataGridView1.Rows[row].Cells[3].Style.BackColor = Color.Red;
                             conflictbw.Add(b);
                         }
+                        DateTime d = Convert.ToDateTime(e.Element("Date").Value.ToString());
 
-                        DateTime date = Convert.ToDateTime(e.Element("Date").Value);
-                        int result = DateTime.Compare(b.Date, date);
+                        DateTime date = DateTime.ParseExact(d.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                        DateTime newdate = DateTime.ParseExact(b.Date.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                        int result = DateTime.Compare(newdate, date);
                         if (result <= 0)
                         {
                             dateColflict = true;
-                            this.dataGridView1.Rows[row].DefaultCellStyle.BackColor = Color.Green;
+                            this.dataGridView1.Rows[row].Cells[0].Style.BackColor = Color.Green;
                         }
+                        //DateTime date = DateTime.ParseExact(e.Element("Date").Value, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                        //// DateTime date = Convert.ToDateTime().;
+                        //int result = DateTime.Compare(b.Date, date);
+                        //if (result <= 0)
+                        //{
+                        //    dateColflict = true;
+                        //    this.dataGridView1.Rows[row].Cells[0].Style.BackColor = Color.Green;
+                        //}
                     }
                     else
                     {
+                        DateTime date = DateTime.ParseExact(b.Date.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
                         XDocument document = XDocument.Load("BWXml.xml");
                         document.Root.Add
                                (
                                   new XElement
                                     (
-                                            "Data", new XElement("Date", b.Date.ToShortDateString()), new XElement("SerialNumber", b.SerialNo), new XElement("EquipmentNumber", b.EquipmentNumber), new XElement("Total", b.Total)
+                                            "Data", new XElement("Date", date.ToShortDateString()), new XElement("SerialNumber", b.SerialNo), new XElement("EquipmentNumber", b.EquipmentNumber), new XElement("Total", b.Total)
                                     )
                               );
                         document.Save("BWXml.xml");
@@ -103,7 +115,7 @@ namespace DataScan
         {
             int row = 0;
             dataGridView1.Columns.Add("Black", "Black");
-            dataGridView1.Columns.Add("Color", "Black");
+            dataGridView1.Columns.Add("Color", "Color");
 
 
             XElement allData = XElement.Load("ColorXml.xml");
@@ -125,30 +137,34 @@ namespace DataScan
                         int total = Convert.ToInt32(e.Element("Total").Value);
                         if (Convert.ToInt32(b.Total) < total)
                         {
-                            this.dataGridView1.Rows[row].DefaultCellStyle.BackColor = Color.Red;
+                            this.dataGridView1.Rows[row].Cells[3].Style.BackColor = Color.Red;
                             conflictcolorExcel.Add(b);
                         }
                         else if (Convert.ToInt32(b.Total) > total)
                         {
-                            this.dataGridView1.Rows[row].DefaultCellStyle.BackColor = Color.Yellow;
+                            this.dataGridView1.Rows[row].Cells[3].Style.BackColor = Color.Red;
                             conflictcolorExcel.Add(b);
                         }
+                        DateTime d = Convert.ToDateTime(e.Element("Date").Value.ToString());
 
-                        DateTime date = Convert.ToDateTime(e.Element("Date").Value);
-                        int result = DateTime.Compare(b.Date, date);
+                        DateTime date = DateTime.ParseExact(d.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                        DateTime newdate = DateTime.ParseExact(b.Date.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                        int result = DateTime.Compare(newdate, date);
                         if (result <= 0)
                         {
                             dateColflict = true;
+                            this.dataGridView1.Rows[row].Cells[0].Style.BackColor = Color.Green;
                         }
                     }
                     else
                     {
+                        DateTime date = DateTime.ParseExact(b.Date.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
                         XDocument document = XDocument.Load("ColorXml.xml");
                         document.Root.Add
                                (
                                   new XElement
                                     (
-                                            "Data", new XElement("Date", b.Date.ToShortDateString()), new XElement("SerialNumber", b.SerialNo), new XElement("EquipmentNumber", b.EquipmentNumber), new XElement("Total", b.Total)
+                                            "Data", new XElement("Date", date.ToShortDateString()), new XElement("SerialNumber", b.SerialNo), new XElement("EquipmentNumber", b.EquipmentNumber), new XElement("Total", b.Total)
                                     )
                               );
                         document.Save("ColorXml.xml");
@@ -190,24 +206,16 @@ namespace DataScan
                 else
                 {
 
-                    ConfirmBtn.Enabled = false;
-                    Exportbtn.Enabled = true;
-                    switch (type)
-                    {
-                        case "BW":
-                            BWConfirm();
-                            break;
-                        case "Color":
-                            ColorConfirm();
-                            break;
-                    }
+                    ConfirmBtn.Enabled = true;
+                    Exportbtn.Enabled = false;
+
                 }
             }
             else
             {
                 ConfirmBtn.Enabled = false;
                 Exportbtn.Enabled = false;
-                
+
             }
         }
 
@@ -215,7 +223,8 @@ namespace DataScan
         {
             foreach (DataGridViewRow r in dataGridView1.Rows)
             {
-                DateTime date = Convert.ToDateTime(r.Cells[0].Value);
+                DateTime d = Convert.ToDateTime(r.Cells[0].Value.ToString());
+                DateTime date = DateTime.ParseExact(d.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
                 string SerialNumber = r.Cells[1].Value.ToString();
                 string EquipmentNumber = r.Cells[2].Value.ToString();
                 string Total = r.Cells[3].Value.ToString();
@@ -229,6 +238,7 @@ namespace DataScan
 
                 exportBW.Add(be);
 
+                //   DateTime date = DateTime.ParseExact(b.Date.ToString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
                 XDocument document = XDocument.Load("BWDataXML.xml");
                 document.Root.Add
                        (
@@ -260,7 +270,8 @@ namespace DataScan
         {
             foreach (DataGridViewRow r in dataGridView1.Rows)
             {
-                DateTime date = Convert.ToDateTime(r.Cells[0].Value);
+                DateTime d = Convert.ToDateTime(r.Cells[0].Value.ToString());
+                DateTime date = DateTime.ParseExact(d.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);  // Convert.ToDateTime(r.Cells[0].Value);
                 string SerialNumber = r.Cells[1].Value.ToString();
                 string EquipmentNumber = r.Cells[2].Value.ToString();
                 string Total = r.Cells[3].Value.ToString();
@@ -319,15 +330,6 @@ namespace DataScan
                     ColorConfirm();
                     break;
             }
-            //if (type == "BW")
-            //{
-            //    BWConfirm();
-            //}
-
-            //if (type == "Color")
-            //{
-            //    ColorConfirm();
-            //}
         }
         public DataTable ConvertToDataTable<T>(IList<T> data)
         {
@@ -348,6 +350,15 @@ namespace DataScan
 
         private void Exportbtn_Click(object sender, EventArgs e)
         {
+            this.saveFileDialog1.AddExtension = false;
+            this.saveFileDialog1.DefaultExt = ".xlsx";
+            this.saveFileDialog1.ShowDialog();
+            Cursor.Current = Cursors.WaitCursor;
+            string directory = this.saveFileDialog1.FileName;
+            if (directory == "")
+            {
+                return;
+            }
             DataTable table = null;
             switch (type)
             {
@@ -362,8 +373,7 @@ namespace DataScan
             ExcelUtlity util = new ExcelUtlity();
             try
             {
-                string directory = AppDomain.CurrentDomain.BaseDirectory;
-                string location = directory+  type + "_" + DateTime.Now.Day.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Year.ToString();
+                string location = directory;
                 bool result = util.WriteDataTableToExcel(table, type, location, "");
                 if (result)
                 {
@@ -374,6 +384,12 @@ namespace DataScan
             {
                 MessageBox.Show("oops !Some error occured.");
             }
+            Cursor.Current = Cursors.Default;
+        }
+
+        private void Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

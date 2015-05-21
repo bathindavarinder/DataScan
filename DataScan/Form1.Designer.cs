@@ -49,7 +49,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "BW",
             "Color"});
-            this.comboBox1.Location = new System.Drawing.Point(177, 38);
+            this.comboBox1.Location = new System.Drawing.Point(260, 88);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(170, 21);
             this.comboBox1.TabIndex = 0;
@@ -58,18 +58,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 45);
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(97, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.Size = new System.Drawing.Size(72, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "File Type";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 101);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(97, 161);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Select File";
             // 
@@ -79,11 +82,10 @@
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(177, 201);
+            this.button1.Location = new System.Drawing.Point(260, 280);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 36);
+            this.button1.Size = new System.Drawing.Size(115, 39);
             this.button1.TabIndex = 63;
             this.button1.UseCompatibleTextRendering = true;
             this.button1.UseVisualStyleBackColor = false;
@@ -94,13 +96,12 @@
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(177, 89);
+            this.button2.Location = new System.Drawing.Point(260, 161);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 35);
+            this.button2.Size = new System.Drawing.Size(108, 35);
             this.button2.TabIndex = 4;
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // openFileDialog1
@@ -110,11 +111,10 @@
             // FileName
             // 
             this.FileName.AutoSize = true;
-            this.FileName.Location = new System.Drawing.Point(196, 151);
+            this.FileName.Location = new System.Drawing.Point(257, 213);
             this.FileName.Name = "FileName";
-            this.FileName.Size = new System.Drawing.Size(23, 13);
+            this.FileName.Size = new System.Drawing.Size(0, 13);
             this.FileName.TabIndex = 5;
-            this.FileName.Text = "File";
             // 
             // Form1
             // 
@@ -129,8 +129,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.ForeColor = System.Drawing.Color.Black;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Data Scan";
+            this.Text = " Clap by Sysnet";
             this.ResumeLayout(false);
             this.PerformLayout();
 
