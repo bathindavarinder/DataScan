@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DataScan.exe" size="35840">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DataScan.exe" size="92160">
       <assemblyIdentity name="DataScan" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dMg3KdAfLXVURW3vRKQ5X3L3/ihLuWfmKULcsp1PUao=</dsig:DigestValue>
+        <dsig:DigestValue>QRKIjWGLZR5Xd0xEksTPzeRTn9NG9Y0LRNSJvGWaSi8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

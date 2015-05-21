@@ -30,19 +30,12 @@ namespace DataScan
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowData));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EqpNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            DataGridViewCellStyle style = 
-        dataGridView1.ColumnHeadersDefaultCellStyle;
-    style.BackColor = Color.Navy;
-    style.ForeColor = Color.White;
-    style.Font = new Font("Arial", 13);
-
-             
-
             this.Exportbtn = new System.Windows.Forms.Button();
             this.ConfirmBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -98,21 +91,25 @@ namespace DataScan
             // 
             // Exportbtn
             // 
-            this.Exportbtn.Location = new System.Drawing.Point(158, 717);
+            this.Exportbtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Exportbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Exportbtn.Image = ((System.Drawing.Image)(resources.GetObject("Exportbtn.Image")));
+            this.Exportbtn.Location = new System.Drawing.Point(433, 717);
             this.Exportbtn.Name = "Exportbtn";
-            this.Exportbtn.Size = new System.Drawing.Size(75, 23);
+            this.Exportbtn.Size = new System.Drawing.Size(106, 50);
             this.Exportbtn.TabIndex = 1;
-            this.Exportbtn.Text = "Export";
             this.Exportbtn.UseVisualStyleBackColor = true;
             this.Exportbtn.Click += new System.EventHandler(this.Exportbtn_Click);
             // 
             // ConfirmBtn
             // 
-            this.ConfirmBtn.Location = new System.Drawing.Point(298, 717);
+            this.ConfirmBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ConfirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ConfirmBtn.Image = ((System.Drawing.Image)(resources.GetObject("ConfirmBtn.Image")));
+            this.ConfirmBtn.Location = new System.Drawing.Point(704, 717);
             this.ConfirmBtn.Name = "ConfirmBtn";
-            this.ConfirmBtn.Size = new System.Drawing.Size(75, 23);
+            this.ConfirmBtn.Size = new System.Drawing.Size(151, 50);
             this.ConfirmBtn.TabIndex = 2;
-            this.ConfirmBtn.Text = "Confirm";
             this.ConfirmBtn.UseVisualStyleBackColor = true;
             this.ConfirmBtn.Click += new System.EventHandler(this.ConfirmBtn_Click);
             // 

@@ -17,4 +17,3 @@ D:\Varinder\DataScan\DataScan\bin\Debug\DataScan.exe.manifest
 D:\Varinder\DataScan\DataScan\bin\Debug\DataScan.application
 D:\Varinder\DataScan\DataScan\obj\Debug\DataScan.exe.manifest
 D:\Varinder\DataScan\DataScan\obj\Debug\DataScan.application
-D:\Varinder\DataScan\DataScan\obj\Debug\DataScan.csprojResolveAssemblyReference.cache
