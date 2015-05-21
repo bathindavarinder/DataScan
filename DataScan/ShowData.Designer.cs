@@ -32,10 +32,6 @@ namespace DataScan
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowData));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EqpNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Exportbtn = new System.Windows.Forms.Button();
             this.ConfirmBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,6 +40,10 @@ namespace DataScan
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EqpNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,33 +61,6 @@ namespace DataScan
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1370, 609);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            this.Date.Width = 300;
-            // 
-            // SerialNumber
-            // 
-            this.SerialNumber.HeaderText = "Serial No.";
-            this.SerialNumber.Name = "SerialNumber";
-            this.SerialNumber.ReadOnly = true;
-            this.SerialNumber.Width = 300;
-            // 
-            // EqpNumber
-            // 
-            this.EqpNumber.HeaderText = "Equipment Number";
-            this.EqpNumber.Name = "EqpNumber";
-            this.EqpNumber.ReadOnly = true;
-            this.EqpNumber.Width = 300;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.Width = 300;
             // 
             // Exportbtn
             // 
@@ -168,6 +141,36 @@ namespace DataScan
             this.label3.TabIndex = 8;
             this.label3.Text = "Green : Previous Date";
             // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            this.Date.Width = 300;
+            // 
+            // SerialNumber
+            // 
+            this.SerialNumber.HeaderText = "Serial No.";
+            this.SerialNumber.Name = "SerialNumber";
+            this.SerialNumber.ReadOnly = true;
+            this.SerialNumber.Width = 300;
+            // 
+            // EqpNumber
+            // 
+            this.EqpNumber.HeaderText = "Equipment Number";
+            this.EqpNumber.Name = "EqpNumber";
+            this.EqpNumber.ReadOnly = true;
+            this.EqpNumber.Width = 300;
+            // 
+            // Total
+            // 
+            this.Total.DividerWidth = 2;
+            this.Total.FillWeight = 150F;
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ToolTipText = "Edit Total";
+            this.Total.Width = 300;
+            // 
             // ShowData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,10 +196,6 @@ namespace DataScan
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SerialNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EqpNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.Button Exportbtn;
         private System.Windows.Forms.Button ConfirmBtn;
         private System.Windows.Forms.Label label1;
@@ -205,5 +204,9 @@ namespace DataScan
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
+        private DataGridViewTextBoxColumn Date;
+        private DataGridViewTextBoxColumn SerialNumber;
+        private DataGridViewTextBoxColumn EqpNumber;
+        private DataGridViewTextBoxColumn Total;
     }
 }
