@@ -42,12 +42,12 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingsPanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.folderPathTxt = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.folderPathTxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
@@ -176,22 +176,27 @@
             this.SettingsPanel.TabIndex = 66;
             this.SettingsPanel.Visible = false;
             // 
-            // label3
+            // button5
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Selected Folder Path";
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.Location = new System.Drawing.Point(364, 196);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(92, 45);
+            this.button5.TabIndex = 5;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // folderPathTxt
+            // button4
             // 
-            this.folderPathTxt.Enabled = false;
-            this.folderPathTxt.Location = new System.Drawing.Point(177, 85);
-            this.folderPathTxt.Name = "folderPathTxt";
-            this.folderPathTxt.Size = new System.Drawing.Size(342, 20);
-            this.folderPathTxt.TabIndex = 2;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.Location = new System.Drawing.Point(177, 196);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(144, 45);
+            this.button4.TabIndex = 4;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -203,25 +208,22 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // folderPathTxt
             // 
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(177, 196);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(144, 45);
-            this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.folderPathTxt.Enabled = false;
+            this.folderPathTxt.Location = new System.Drawing.Point(177, 85);
+            this.folderPathTxt.Name = "folderPathTxt";
+            this.folderPathTxt.Size = new System.Drawing.Size(342, 20);
+            this.folderPathTxt.TabIndex = 2;
             // 
-            // button5
+            // label3
             // 
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(364, 196);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(92, 45);
-            this.button5.TabIndex = 5;
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 88);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Selected Folder Path";
             // 
             // Form1
             // 
