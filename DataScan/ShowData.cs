@@ -28,9 +28,23 @@ namespace DataScan
         public string type = "";
 
         public bool dateColflict = false;
+        public string path = "";
+
+
+        public string bwXml;
+        public string bwdataXml;
+        public string colorXml;
+        public string colordataXml;
+
+        public string hyphenFormat = "dd-MM-yyyy";
 
         public ShowData()
         {
+            bwXml = path + "\\" + bwXml;
+            bwdataXml = path + "\\" + bwdataXml;
+            colorXml = path + "\\" + colorXml;
+            colordataXml = path + "\\" + colordataXml;
+
             InitializeComponent();
         }
         public void ShowDa()
@@ -45,7 +59,7 @@ namespace DataScan
         public void BWInit()
         {
             int row = 0;
-            XElement allData = XElement.Load("BWXml.xml");
+            XElement allData = XElement.Load(bwXml);
             IEnumerable<XElement> authors = null;
             if (allData != null)
             {
@@ -95,7 +109,7 @@ namespace DataScan
                     else
                     {
                         DateTime date = DateTime.ParseExact(b.Date.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
-                        XDocument document = XDocument.Load("BWXml.xml");
+                        XDocument document = XDocument.Load(bwXml);
                         document.Root.Add
                                (
                                   new XElement
@@ -103,7 +117,7 @@ namespace DataScan
                                             "Data", new XElement("Date", date.ToShortDateString()), new XElement("SerialNumber", b.SerialNo), new XElement("EquipmentNumber", b.EquipmentNumber), new XElement("Total", b.Total)
                                     )
                               );
-                        document.Save("BWXml.xml");
+                        document.Save(bwXml);
 
                     }
                 }
@@ -118,7 +132,7 @@ namespace DataScan
             dataGridView1.Columns.Add("Color", "Color");
 
 
-            XElement allData = XElement.Load("ColorXml.xml");
+            XElement allData = XElement.Load(colorXml);
             IEnumerable<XElement> authors = null;
             if (allData != null)
             {
@@ -159,7 +173,7 @@ namespace DataScan
                     else
                     {
                         DateTime date = DateTime.ParseExact(b.Date.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
-                        XDocument document = XDocument.Load("ColorXml.xml");
+                        XDocument document = XDocument.Load(colorXml);
                         document.Root.Add
                                (
                                   new XElement
@@ -167,7 +181,7 @@ namespace DataScan
                                             "Data", new XElement("Date", date.ToShortDateString()), new XElement("SerialNumber", b.SerialNo), new XElement("EquipmentNumber", b.EquipmentNumber), new XElement("Total", b.Total)
                                     )
                               );
-                        document.Save("ColorXml.xml");
+                        document.Save(colorXml);
 
                     }
                 }
@@ -239,7 +253,7 @@ namespace DataScan
                 exportBW.Add(be);
 
                 //   DateTime date = DateTime.ParseExact(b.Date.ToString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
-                XDocument document = XDocument.Load("BWDataXML.xml");
+                XDocument document = XDocument.Load(bwdataXml);
                 document.Root.Add
                        (
                           new XElement
@@ -247,22 +261,22 @@ namespace DataScan
                                     "Data", new XElement("Date", date.ToShortDateString()), new XElement("SerialNumber", SerialNumber), new XElement("EquipmentNumber", EquipmentNumber), new XElement("Total", Total)
                             )
                       );
-                document.Save("BWDataXML.xml");
+                document.Save(bwdataXml);
                 BW b = conflictbw.Where(x => x.EquipmentNumber == EquipmentNumber).FirstOrDefault();
                 if (b != null)
                 {
-                    XDocument documentc = XDocument.Load("BWXml.xml");
+                    XDocument documentc = XDocument.Load(bwXml);
                     XElement et = documentc.Descendants("Data").Where(x => x.Element("EquipmentNumber").Value == b.EquipmentNumber).FirstOrDefault();
                     et.SetElementValue("Date", date);
                     et.SetElementValue("Total", Total);
-                    documentc.Save("BWXml.xml");
+                    documentc.Save(bwXml);
                 }
                 else
                 {
-                    XDocument documentc = XDocument.Load("BWXml.xml");
+                    XDocument documentc = XDocument.Load(bwXml);
                     XElement et = documentc.Descendants("Data").Where(x => x.Element("EquipmentNumber").Value == EquipmentNumber).FirstOrDefault();
                     et.SetElementValue("Date", date);
-                    documentc.Save("BWXml.xml");
+                    documentc.Save(bwXml);
                 }
             }
         }
@@ -289,7 +303,7 @@ namespace DataScan
                 exportColor.Add(be);
 
 
-                XDocument document = XDocument.Load("ColorDataXML.xml");
+                XDocument document = XDocument.Load(colordataXml);
                 document.Root.Add
                        (
                           new XElement
@@ -297,22 +311,22 @@ namespace DataScan
                                     "Data", new XElement("Date", date.ToShortDateString()), new XElement("SerialNumber", SerialNumber), new XElement("EquipmentNumber", EquipmentNumber), new XElement("Total", Total), new XElement("Black", Black), new XElement("Color", Color)
                             )
                       );
-                document.Save("ColorDataXML.xml");
+                document.Save(colordataXml);
                 BW b = conflictbw.Where(x => x.EquipmentNumber == EquipmentNumber).FirstOrDefault();
                 if (b != null)
                 {
-                    XDocument documentc = XDocument.Load("ColorXml.xml");
+                    XDocument documentc = XDocument.Load(colorXml);
                     XElement et = documentc.Descendants("Data").Where(x => x.Element("EquipmentNumber").Value == b.EquipmentNumber).FirstOrDefault();
                     et.SetElementValue("Date", date);
                     et.SetElementValue("Total", Total);
-                    documentc.Save("ColorXml.xml");
+                    documentc.Save(colorXml);
                 }
                 else
                 {
-                    XDocument documentc = XDocument.Load("ColorXml.xml");
+                    XDocument documentc = XDocument.Load(colorXml);
                     XElement et = documentc.Descendants("Data").Where(x => x.Element("EquipmentNumber").Value == EquipmentNumber).FirstOrDefault();
                     et.SetElementValue("Date", date);
-                    documentc.Save("ColorXml.xml");
+                    documentc.Save(colorXml);
                 }
             }
         }
