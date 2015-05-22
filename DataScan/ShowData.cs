@@ -40,16 +40,16 @@ namespace DataScan
 
         public ShowData()
         {
-            bwXml = path + "\\" + bwXml;
-            bwdataXml = path + "\\" + bwdataXml;
-            colorXml = path + "\\" + colorXml;
-            colordataXml = path + "\\" + colordataXml;
-
+           
             InitializeComponent();
         }
         public void ShowDa()
         {
 
+            bwXml = path + "\\" + "BWXml.xml";
+            bwdataXml = path + "\\" + "BWDataXML.xml";
+            colorXml = path + "\\" + "ColorXml.xml";
+            colordataXml = path + "\\" + "ColorDataXML.xml";
 
             this.InitGrid();
 
@@ -87,34 +87,31 @@ namespace DataScan
                             this.dataGridView1.Rows[row].Cells[3].Style.BackColor = Color.Red;
                             conflictbw.Add(b);
                         }
-                        DateTime d = Convert.ToDateTime(e.Element("Date").Value.ToString());
 
-                        DateTime date = DateTime.ParseExact(d.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
-                        DateTime newdate = DateTime.ParseExact(b.Date.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                         string createddate = Convert.ToDateTime(b.Date.ToShortDateString()).ToString("dd-MM-yyyy");
+                        string olddate = Convert.ToDateTime(e.Element("Date").Value.ToString()).ToString("dd-MM-yyyy");
+                  
+
+                        DateTime date = DateTime.ParseExact(olddate, hyphenFormat, CultureInfo.InvariantCulture);
+                        DateTime newdate = DateTime.ParseExact(createddate, hyphenFormat, CultureInfo.InvariantCulture);
                         int result = DateTime.Compare(newdate, date);
                         if (result <= 0)
                         {
                             dateColflict = true;
                             this.dataGridView1.Rows[row].Cells[0].Style.BackColor = Color.Green;
                         }
-                        //DateTime date = DateTime.ParseExact(e.Element("Date").Value, "dd-MM-yyyy", CultureInfo.InvariantCulture);
-                        //// DateTime date = Convert.ToDateTime().;
-                        //int result = DateTime.Compare(b.Date, date);
-                        //if (result <= 0)
-                        //{
-                        //    dateColflict = true;
-                        //    this.dataGridView1.Rows[row].Cells[0].Style.BackColor = Color.Green;
-                        //}
+                     
                     }
                     else
                     {
-                        DateTime date = DateTime.ParseExact(b.Date.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                        string createddate = Convert.ToDateTime(b.Date.ToShortDateString()).ToString("dd-MM-yyyy");
+                       
                         XDocument document = XDocument.Load(bwXml);
                         document.Root.Add
                                (
                                   new XElement
                                     (
-                                            "Data", new XElement("Date", date.ToShortDateString()), new XElement("SerialNumber", b.SerialNo), new XElement("EquipmentNumber", b.EquipmentNumber), new XElement("Total", b.Total)
+                                            "Data", new XElement("Date", createddate), new XElement("SerialNumber", b.SerialNo), new XElement("EquipmentNumber", b.EquipmentNumber), new XElement("Total", b.Total)
                                     )
                               );
                         document.Save(bwXml);
@@ -159,11 +156,14 @@ namespace DataScan
                             this.dataGridView1.Rows[row].Cells[3].Style.BackColor = Color.Red;
                             conflictcolorExcel.Add(b);
                         }
-                        DateTime d = Convert.ToDateTime(e.Element("Date").Value.ToString());
+                        string createddate = Convert.ToDateTime(b.Date.ToShortDateString()).ToString("dd-MM-yyyy");
+                        string olddate = Convert.ToDateTime(e.Element("Date").Value.ToString()).ToString("dd-MM-yyyy");
 
-                        DateTime date = DateTime.ParseExact(d.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
-                        DateTime newdate = DateTime.ParseExact(b.Date.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+
+                        DateTime date = DateTime.ParseExact(olddate, hyphenFormat, CultureInfo.InvariantCulture);
+                        DateTime newdate = DateTime.ParseExact(createddate, hyphenFormat, CultureInfo.InvariantCulture);
                         int result = DateTime.Compare(newdate, date);
+                       
                         if (result <= 0)
                         {
                             dateColflict = true;
@@ -172,13 +172,14 @@ namespace DataScan
                     }
                     else
                     {
-                        DateTime date = DateTime.ParseExact(b.Date.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                        string createddate = Convert.ToDateTime(b.Date.ToShortDateString()).ToString("dd-MM-yyyy");
+                        
                         XDocument document = XDocument.Load(colorXml);
                         document.Root.Add
                                (
                                   new XElement
                                     (
-                                            "Data", new XElement("Date", date.ToShortDateString()), new XElement("SerialNumber", b.SerialNo), new XElement("EquipmentNumber", b.EquipmentNumber), new XElement("Total", b.Total)
+                                            "Data", new XElement("Date", createddate), new XElement("SerialNumber", b.SerialNo), new XElement("EquipmentNumber", b.EquipmentNumber), new XElement("Total", b.Total)
                                     )
                               );
                         document.Save(colorXml);
@@ -237,8 +238,9 @@ namespace DataScan
         {
             foreach (DataGridViewRow r in dataGridView1.Rows)
             {
-                DateTime d = Convert.ToDateTime(r.Cells[0].Value.ToString());
-                DateTime date = DateTime.ParseExact(d.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                string createddate = Convert.ToDateTime(r.Cells[0].Value.ToString()).ToString("dd-MM-yyyy");
+              //  DateTime d = Convert.ToDateTime(r.Cells[0].Value.ToString());
+                DateTime date = DateTime.ParseExact(createddate, hyphenFormat, CultureInfo.InvariantCulture);
                 string SerialNumber = r.Cells[1].Value.ToString();
                 string EquipmentNumber = r.Cells[2].Value.ToString();
                 string Total = r.Cells[3].Value.ToString();
@@ -252,13 +254,13 @@ namespace DataScan
 
                 exportBW.Add(be);
 
-                //   DateTime date = DateTime.ParseExact(b.Date.ToString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+                //   DateTime date = DateTime.ParseExact(b.Date.ToString(), hyphenFormat, CultureInfo.InvariantCulture);
                 XDocument document = XDocument.Load(bwdataXml);
                 document.Root.Add
                        (
                           new XElement
                             (
-                                    "Data", new XElement("Date", date.ToShortDateString()), new XElement("SerialNumber", SerialNumber), new XElement("EquipmentNumber", EquipmentNumber), new XElement("Total", Total)
+                                    "Data", new XElement("Date", createddate), new XElement("SerialNumber", SerialNumber), new XElement("EquipmentNumber", EquipmentNumber), new XElement("Total", Total)
                             )
                       );
                 document.Save(bwdataXml);
@@ -267,7 +269,7 @@ namespace DataScan
                 {
                     XDocument documentc = XDocument.Load(bwXml);
                     XElement et = documentc.Descendants("Data").Where(x => x.Element("EquipmentNumber").Value == b.EquipmentNumber).FirstOrDefault();
-                    et.SetElementValue("Date", date);
+                    et.SetElementValue("Date", createddate);
                     et.SetElementValue("Total", Total);
                     documentc.Save(bwXml);
                 }
@@ -275,7 +277,7 @@ namespace DataScan
                 {
                     XDocument documentc = XDocument.Load(bwXml);
                     XElement et = documentc.Descendants("Data").Where(x => x.Element("EquipmentNumber").Value == EquipmentNumber).FirstOrDefault();
-                    et.SetElementValue("Date", date);
+                    et.SetElementValue("Date", createddate);
                     documentc.Save(bwXml);
                 }
             }
@@ -284,8 +286,9 @@ namespace DataScan
         {
             foreach (DataGridViewRow r in dataGridView1.Rows)
             {
-                DateTime d = Convert.ToDateTime(r.Cells[0].Value.ToString());
-                DateTime date = DateTime.ParseExact(d.ToShortDateString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);  // Convert.ToDateTime(r.Cells[0].Value);
+                string createddate = Convert.ToDateTime(r.Cells[0].Value.ToString()).ToString("dd-MM-yyyy");
+                //DateTime d = Convert.ToDateTime(r.Cells[0].Value.ToString());
+                DateTime date = DateTime.ParseExact(createddate, hyphenFormat, CultureInfo.InvariantCulture);  // Convert.ToDateTime(r.Cells[0].Value);
                 string SerialNumber = r.Cells[1].Value.ToString();
                 string EquipmentNumber = r.Cells[2].Value.ToString();
                 string Total = r.Cells[3].Value.ToString();
@@ -308,7 +311,7 @@ namespace DataScan
                        (
                           new XElement
                             (
-                                    "Data", new XElement("Date", date.ToShortDateString()), new XElement("SerialNumber", SerialNumber), new XElement("EquipmentNumber", EquipmentNumber), new XElement("Total", Total), new XElement("Black", Black), new XElement("Color", Color)
+                                    "Data", new XElement("Date", createddate), new XElement("SerialNumber", SerialNumber), new XElement("EquipmentNumber", EquipmentNumber), new XElement("Total", Total), new XElement("Black", Black), new XElement("Color", Color)
                             )
                       );
                 document.Save(colordataXml);
@@ -317,7 +320,7 @@ namespace DataScan
                 {
                     XDocument documentc = XDocument.Load(colorXml);
                     XElement et = documentc.Descendants("Data").Where(x => x.Element("EquipmentNumber").Value == b.EquipmentNumber).FirstOrDefault();
-                    et.SetElementValue("Date", date);
+                    et.SetElementValue("Date", createddate);
                     et.SetElementValue("Total", Total);
                     documentc.Save(colorXml);
                 }
@@ -325,7 +328,7 @@ namespace DataScan
                 {
                     XDocument documentc = XDocument.Load(colorXml);
                     XElement et = documentc.Descendants("Data").Where(x => x.Element("EquipmentNumber").Value == EquipmentNumber).FirstOrDefault();
-                    et.SetElementValue("Date", date);
+                    et.SetElementValue("Date", createddate);
                     documentc.Save(colorXml);
                 }
             }

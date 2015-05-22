@@ -49,7 +49,6 @@ C:\Users\vakumar\Documents\GitHub\DataScan\DataScan\bin\Debug\Clap.exe
 C:\Users\vakumar\Documents\GitHub\DataScan\DataScan\bin\Debug\Clap.pdb
 C:\Users\vakumar\Documents\GitHub\DataScan\DataScan\bin\Debug\Excel.4.5.dll
 C:\Users\vakumar\Documents\GitHub\DataScan\DataScan\bin\Debug\ICSharpCode.SharpZipLib.dll
-C:\Users\vakumar\Documents\GitHub\DataScan\DataScan\obj\Debug\DataScan.csprojResolveAssemblyReference.cache
 C:\Users\vakumar\Documents\GitHub\DataScan\DataScan\obj\Debug\DataScan.Form1.resources
 C:\Users\vakumar\Documents\GitHub\DataScan\DataScan\obj\Debug\Clap.Properties.Resources.resources
 C:\Users\vakumar\Documents\GitHub\DataScan\DataScan\obj\Debug\DataScan.ShowData.resources

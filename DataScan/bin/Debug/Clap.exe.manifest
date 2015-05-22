@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Clap.exe" size="204800">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Clap.exe" size="205312">
       <assemblyIdentity name="Clap" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>688o9xG0GLq7mmoAuVeMnmbsGPNJffvPxLSFCeySSl4=</dsig:DigestValue>
+        <dsig:DigestValue>V0K0L1gsnlxSpPAXdHVQsX0gEsLN56Kod9FsGxaMtZs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
