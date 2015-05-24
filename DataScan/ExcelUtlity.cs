@@ -61,21 +61,21 @@ namespace Excel
 
                         }
 
-                        excelSheet.Cells[rowcount, i] = datarow[i - 1].ToString();
+                        excelSheet.Cells[rowcount, i] = datarow[i - 1];
 
                         //for alternate rows
-                        if (rowcount > 2)
-                        {
-                            //if (i == dataTable.Columns.Count)
-                            //{
-                                //if (rowcount % 2 == 0)
-                                //{
-                                    excelCellrange = excelSheet.Range[excelSheet.Cells[rowcount, 1], excelSheet.Cells[rowcount, dataTable.Columns.Count]];
-                                    FormattingExcelCells(excelCellrange, "White", System.Drawing.Color.Black,false);
-                                //}
+                        //if (rowcount > 2)
+                        //{
+                        //    //if (i == dataTable.Columns.Count)
+                        //    //{
+                        //        //if (rowcount % 2 == 0)
+                        //        //{
+                        //            excelCellrange = excelSheet.Range[excelSheet.Cells[rowcount, 1], excelSheet.Cells[rowcount, dataTable.Columns.Count]];
+                        //            FormattingExcelCells(excelCellrange, "White", System.Drawing.Color.Black,false);
+                        //        //}
 
                             
-                        }
+                        //}
 
                     }
 
@@ -89,8 +89,8 @@ namespace Excel
                 border.Weight = 2d;
 
 
-                excelCellrange = excelSheet.Range[excelSheet.Cells[1, 1], excelSheet.Cells[2, dataTable.Columns.Count]];
-               // FormattingExcelCells(excelCellrange, "#000099", System.Drawing.Color.White, true);
+              //  excelCellrange = excelSheet.Range[excelSheet.Cells[1, 1], excelSheet.Cells[2, dataTable.Columns.Count]];
+             //  FormattingExcelCells(excelCellrange, "#000099", System.Drawing.Color.White, true);
 
 
                 //now save the workbook and exit Excel

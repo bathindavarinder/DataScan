@@ -56,3 +56,4 @@ C:\Users\vakumar\Documents\GitHub\DataScan\DataScan\obj\Debug\DataScan.csproj.Ge
 C:\Users\vakumar\Documents\GitHub\DataScan\DataScan\obj\Debug\Clap.exe.manifest
 C:\Users\vakumar\Documents\GitHub\DataScan\DataScan\obj\Debug\Clap.application
 C:\Users\vakumar\Documents\GitHub\DataScan\DataScan\bin\Debug\Settings.xml
+F:\Projects\DataScan\DataScan\bin\Debug\Settings.xml

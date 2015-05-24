@@ -58,6 +58,7 @@ namespace DataScan
 
         public void BWInit()
         {
+         //   dataGridView1.Columns.Add("Previous Total", "Previous Total");
             int row = 0;
             XElement allData = XElement.Load(bwXml);
             IEnumerable<XElement> authors = null;
@@ -68,23 +69,28 @@ namespace DataScan
 
             foreach (var b in bw)
             {
-                this.dataGridView1.Rows.Add(b.Date.ToShortDateString(), b.SerialNo, b.EquipmentNumber, b.Total);
 
+                this.dataGridView1.Rows.Add(b.Date.ToShortDateString(), b.SerialNo, b.EquipmentNumber, b.Total);
                 if (authors != null)
                 {
+               
                     XElement e = authors.Where(x => x.Element("EquipmentNumber").Value == b.EquipmentNumber).FirstOrDefault();
                     if (e != null)
                     {
-                        int total = Convert.ToInt32(e.Element("Total").Value);
+                        int total = Convert.ToInt32(e.Element("Total").Value); 
+                        this.dataGridView1.Rows[row].Cells[3].ToolTipText = "Previous Total : " + total;
                         if (Convert.ToInt32(b.Total) < total)
                         {
 
                             this.dataGridView1.Rows[row].Cells[3].Style.BackColor = Color.Red;
+                             System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
+                           
+                          
                             conflictbw.Add(b);
                         }
                         else if (Convert.ToInt32(b.Total) > total)
                         {
-                            this.dataGridView1.Rows[row].Cells[3].Style.BackColor = Color.Red;
+                            this.dataGridView1.Rows[row].Cells[3].Style.BackColor = Color.Yellow;
                             conflictbw.Add(b);
                         }
 
@@ -99,11 +105,13 @@ namespace DataScan
                         {
                             dateColflict = true;
                             this.dataGridView1.Rows[row].Cells[0].Style.BackColor = Color.Green;
+                            this.dataGridView1.Rows[row].Cells[0].ToolTipText = "Previous Date :" + date;
                         }
                      
                     }
                     else
                     {
+                    //    this.dataGridView1.Rows.Add(b.Date.ToShortDateString(), b.SerialNo, b.EquipmentNumber, b.Total);
                         string createddate = Convert.ToDateTime(b.Date.ToShortDateString()).ToString("dd-MM-yyyy");
                        
                         XDocument document = XDocument.Load(bwXml);
@@ -125,6 +133,7 @@ namespace DataScan
         public void ColorInit()
         {
             int row = 0;
+          //  dataGridView1.Columns.Add("Previous Total", "Previous Total");
             dataGridView1.Columns.Add("Black", "Black");
             dataGridView1.Columns.Add("Color", "Color");
 
@@ -138,14 +147,15 @@ namespace DataScan
 
             foreach (var b in colorExcel)
             {
-                this.dataGridView1.Rows.Add(b.Date, b.SerialNo, b.EquipmentNumber, b.Total, b.Black, b.Color);
 
+                this.dataGridView1.Rows.Add(b.Date, b.SerialNo, b.EquipmentNumber, b.Total, b.Black, b.Color);
                 if (authors != null)
                 {
                     XElement e = authors.Where(x => x.Element("EquipmentNumber").Value == b.EquipmentNumber).FirstOrDefault();
                     if (e != null)
                     {
                         int total = Convert.ToInt32(e.Element("Total").Value);
+                        this.dataGridView1.Rows[row].Cells[3].ToolTipText = "Previous Total : " + total;
                         if (Convert.ToInt32(b.Total) < total)
                         {
                             this.dataGridView1.Rows[row].Cells[3].Style.BackColor = Color.Red;
@@ -153,7 +163,7 @@ namespace DataScan
                         }
                         else if (Convert.ToInt32(b.Total) > total)
                         {
-                            this.dataGridView1.Rows[row].Cells[3].Style.BackColor = Color.Red;
+                            this.dataGridView1.Rows[row].Cells[3].Style.BackColor = Color.Yellow;
                             conflictcolorExcel.Add(b);
                         }
                         string createddate = Convert.ToDateTime(b.Date.ToShortDateString()).ToString("dd-MM-yyyy");
@@ -168,12 +178,13 @@ namespace DataScan
                         {
                             dateColflict = true;
                             this.dataGridView1.Rows[row].Cells[0].Style.BackColor = Color.Green;
+                            this.dataGridView1.Rows[row].Cells[0].ToolTipText = "Previous Date :" + date;
                         }
                     }
                     else
                     {
                         string createddate = Convert.ToDateTime(b.Date.ToShortDateString()).ToString("dd-MM-yyyy");
-                        
+                      //  this.dataGridView1.Rows.Add(b.Date, b.SerialNo, b.EquipmentNumber, b.Total, b.Black, b.Color);
                         XDocument document = XDocument.Load(colorXml);
                         document.Root.Add
                                (
